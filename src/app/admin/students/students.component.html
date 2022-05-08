@@ -1,0 +1,72 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+
+        <div class=" card-header">
+              <h1 class=" card-title text-left">Students</h1>
+        </div>
+
+        <div class=" card-body ">
+          <div class=" row">
+            <div class=" col-md-12">
+
+
+                  <div class=" table-responsive">
+                    <table class=" table tablesorter" id="">
+                      <thead class=" text-primary">
+                        <tr>
+                          <th>First_Name</th>
+                          <th>Last_Name</th>
+                          <th>Birthdate</th>
+                          <th>Email</th>
+                          <th>Address</th>
+                          <th>Phone</th>
+                          <th>nationality</th>
+                          <th>specialization</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of students" >
+                          
+                          <td>{{item.fname}}</td>
+                          <td>{{item.lname}}</td>
+                          <td>{{item.birthdate}}</td>
+                          <td>{{item.email}}</td>
+                          <td>{{item.address}}</td>
+                          <td>{{item.phone}}</td>
+                          <td>{{item.nationality}}</td>
+                          <td>{{item.specialization}}</td>
+                          <td class="td-actions"  >
+                            <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit"
+                              container="body" (click)="editStudentInfo(item)">
+                              <i class=" tim-icons icon-pencil"> </i>
+                            </button>
+                            <button class=" btn btn-link" type="button" placement="left" ngbTooltip="delete"
+                            container="body" (click)="deleteStudentInfo(item.id)">
+                            <i class=" tim-icons icon-simple-remove"> </i>
+                          </button>
+                          </td>
+                        </tr>
+                  
+                      </tbody>
+                    </table>
+                  </div>
+                  <button class="btn btn-fill btn-danger float-right" (click)="OnAdd()">
+                    Add
+                  </button>
+           
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

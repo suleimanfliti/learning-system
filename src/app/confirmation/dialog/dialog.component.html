@@ -1,0 +1,56 @@
+<div class="relative flex flex-col w-full h-full">
+
+
+    <!-- Content -->
+    <div class="flex flex-col sm:flex-row flex-auto items-center sm:items-start p-8 pb-6 sm:pb-8">
+
+
+        <ng-container *ngIf="data.title || data.message">
+            <div >
+
+                <!-- Title -->
+                <ng-container *ngIf="data.title">
+                    <h3
+                     
+                        [innerHTML]="data.title"></h3>
+                </ng-container>
+
+                <!-- Message -->
+                <ng-container *ngIf="data.message">
+                    <p
+                        
+                        [innerHTML]="data.message"></p>
+                </ng-container>
+            </div>
+        </ng-container>
+
+    </div>
+
+    <!-- Actions -->
+    <ng-container *ngIf="data.actions.confirm.show || data.actions.cancel.show">
+        <div class="d-flex justify-content-end mt-4">
+
+            <!-- Cancel -->
+            <ng-container *ngIf="data.actions.cancel.show">
+                <button
+                class="btn btn-fill btn-dark"
+                mat-flat-button
+                    [matDialogClose]="'cancelled'">
+                    {{data.actions.cancel.label}}
+                </button>
+            </ng-container>
+
+            <!-- Confirm -->
+            <ng-container *ngIf="data.actions.confirm.show">
+                <button
+                class="btn btn-fill btn-danger"
+                    mat-flat-button
+                    [matDialogClose]="'confirmed'">
+                    {{data.actions.confirm.label}}
+                </button>
+            </ng-container>
+
+        </div>
+    </ng-container>
+
+</div>

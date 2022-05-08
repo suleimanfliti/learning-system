@@ -1,0 +1,69 @@
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+  
+          <div class=" card-header">
+                <h2 class=" card-title text-left">Courses</h2>
+          </div>
+  
+          <div class=" card-body ">
+            <div class=" row">
+              <div class=" col-md-12">
+  
+  
+                    <div class=" table-responsive">
+                      <table class=" table tablesorter" id="">
+                        <thead class=" text-primary">
+                          <tr>
+                            <th>CourseName</th>
+                            <th>CourseCode</th>
+                            <th>specialization</th>
+                            <th>academicYear</th>
+                            <th>type</th>
+                            <th>graduation</th> 
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of courses" >
+                            
+                            <td>{{item.name}}</td>
+                            <td>{{item.courseCode}}</td>
+                            <td>{{item.specialization}}</td>
+                            <td>{{item.graduation}}</td>
+                            <td>{{item.academicYear}}</td>
+                            <td>{{item.type}}</td>
+                    
+                            <td class="td-actions"  >
+                              <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit"
+                                container="body" (click)="editTeacherInfo(item)">
+                                <i class=" tim-icons icon-pencil"> </i>
+                              </button>
+                              <button class=" btn btn-link" type="button" placement="left" ngbTooltip="delete"
+                              container="body" (click)="deleteTeacherInfo(item.id)">
+                              <i class=" tim-icons icon-simple-delete"> </i>
+                            </button>
+                            </td>
+                          </tr>
+                    
+                        </tbody>
+                      </table>
+                    </div>
+                    <button class="btn btn-fill btn-danger float-right" (click)="OnAdd()">
+                      Add
+                    </button>
+             
+              </div>
+            </div>
+  
+  
+          </div>
+  
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>

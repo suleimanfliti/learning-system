@@ -1,0 +1,138 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <div class=" d-flex justify-content-between align-items-center ">
+            <h2 class=" card-title">Add Teacher</h2>
+            <button mat-icon-button (click)=" onNoClick()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </div>
+        <hr />
+        <div class=" card-body">
+          <form class="form" [formGroup]="addform" #teacher="ngForm">
+
+            <div class="row">
+
+              <div class="col-md-4">
+                <mat-form-field class="form-full-width" appearance="fill">
+                  <mat-label>First Name </mat-label>
+                  <input matInput placeholder="Enter Fname" formControlName="fname">
+                  <mat-error *ngIf="!addform.controls['fname'].valid">{{
+                    getErrorMessage("fname")
+                    }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="form-full-width" appearance="fill">
+                  <mat-label>Last Name </mat-label>
+                  <input matInput placeholder="Enter Lname" formControlName="lname">
+                  <mat-error *ngIf="!addform.controls['lname'].valid">{{
+                    getErrorMessage("lname")
+                    }}</mat-error>
+                </mat-form-field>
+              </div>
+      
+              <div class="col-md-4">
+       
+                <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>type</mat-label>
+                    <mat-select
+                      placeholder="select type"
+                      formControlName="type"
+                    >
+                      <mat-option *ngFor="let type of types" [value]="type">{{
+                        type
+                      }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="!addform.controls['type'].valid">{{
+                      getErrorMessage("type")
+                    }}</mat-error>
+                  </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <mat-form-field class="form-full-width" appearance="fill">
+                  <mat-label>Birthdate</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-error *ngIf="!addform.controls['birthdate'].valid">{{
+                    getErrorMessage("birthdate")
+                    }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="form-full-width" appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Enter Email" formControlName="email">
+                  <mat-error *ngIf="!addform.controls['email'].valid">{{
+                    getErrorMessage("email")
+                    }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="form-full-width" appearance="fill">
+                  <mat-label>Address</mat-label>
+                  <input matInput placeholder="Enter Address" formControlName="address">
+                  <mat-error *ngIf="!addform.controls['address'].valid">{{
+                    getErrorMessage("address")
+                    }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-4">
+                <mat-form-field class="form-full-width" appearance="fill">
+                  <mat-label>Phone</mat-label>
+                  <span matPrefix>+963 &nbsp;</span>
+                  <input type="number" matInput placeholder="555-555-1234" formControlName="phone" />
+                  <mat-icon matSuffix>phone</mat-icon>
+                  <mat-error *ngIf="!addform.controls['phone'].valid">{{
+                    getErrorMessage("phone")
+                    }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="form-full-width" appearance="fill">
+                  <mat-label>nationality</mat-label>
+                  <input matInput placeholder="Enter nationality" formControlName="nationality">
+                  <mat-error *ngIf="!addform.controls['nationality'].valid">{{
+                    getErrorMessage("nationality")
+                    }}</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-4">
+                <mat-form-field class="form-full-width" appearance="fill">
+                  <mat-label>courseCode</mat-label>
+                  <input type="number" matInput placeholder="Enter courseCode" formControlName="courseCode">
+                  <mat-error *ngIf="!addform.controls['courseCode'].valid">{{
+                    getErrorMessage("courseCode")
+                    }}</mat-error>
+                </mat-form-field>
+              </div>
+
+
+            </div>
+
+            <hr />
+            <div mat-dialog-actions class="d-flex justify-content-end">
+              <button mat-button (click)="reset()">Reset</button>
+              <button mat-stroked-button color="warn" cdkFocusInitial (click)=" onNoClick()">
+                Close
+              </button>
+              <button class="btn btn-fill btn-danger" (click)="addTeacher()">
+                {{actionBtn}}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

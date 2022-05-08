@@ -1,0 +1,126 @@
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">        
+          <div class=" card-header">          
+              <div class=" d-flex justify-content-between align-items-center ">
+                <h2 class=" card-title">Add Course</h2>
+                <button mat-icon-button (click)=" onNoClick()">
+                    <mat-icon>close</mat-icon>
+                  </button>
+              </div>
+          </div>
+          <hr />
+          <div class=" card-body">
+            <form class="form" [formGroup]="addform"  #course="ngForm" >
+              
+              <div class="row">
+         
+                <div class="col-md-4">
+                  <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>Course Name</mat-label>
+                    <input matInput placeholder="Enter name" formControlName="name" >
+                    <mat-error *ngIf="!addform.controls['name'].valid">{{
+                        getErrorMessage("name")
+                      }}</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>course Code</mat-label>
+                    <input type="number" matInput placeholder="Enter courseCode"  formControlName="courseCode" >
+                    <mat-error *ngIf="!addform.controls['courseCode'].valid">{{
+                        getErrorMessage("courseCode")
+                      }}</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+       
+                    <mat-form-field class="form-full-width" appearance="fill">
+                        <mat-label>course type</mat-label>
+                        <mat-select
+                          placeholder="select type"
+                          formControlName="type"
+                        >
+                          <mat-option *ngFor="let type of types" [value]="type">{{
+                            type
+                          }}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!addform.controls['type'].valid">{{
+                          getErrorMessage("type")
+                        }}</mat-error>
+                      </mat-form-field>
+                  </div>
+             
+               
+              </div>
+       
+             <div class="row">
+          
+                <div class="col-md-4">
+                  <mat-form-field class="form-full-width" appearance="fill">
+                    <mat-label>graduation</mat-label>
+                    <mat-select
+                    placeholder="graduation?"
+                    formControlName="graduation"
+                  >
+                    <mat-option *ngFor="let grad of grads" [value]="grad">{{
+                        grad
+                    }}</mat-option>
+                  </mat-select>
+                    <mat-error *ngIf="!addform.controls['graduation'].valid">{{
+                        getErrorMessage("graduation")
+                      }}</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="form-full-width" appearance="fill">
+                      <mat-label>academicYear</mat-label>
+                      <mat-select
+                      placeholder="select academicYear"
+                      formControlName="academicYear"
+                    >
+                      <mat-option *ngFor="let year of years" [value]="year">{{
+                        year
+                      }}</mat-option>
+                    </mat-select>
+                      <mat-error *ngIf="!addform.controls['academicYear'].valid">{{
+                          getErrorMessage("academicYear")
+                        }}</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-md-4">
+                    <mat-form-field class="form-full-width" appearance="fill">
+                        <mat-label>specialization</mat-label>
+                        <mat-select placeholder="Chose specialization"   formControlName="specialization">
+                          <mat-option [value]="item"  *ngFor="let item of specializations">{{item}}</mat-option>
+                        </mat-select> 
+                        <mat-error *ngIf="!addform.controls['specialization'].valid">{{
+                            getErrorMessage("specialization")
+                          }}</mat-error>                 
+                      </mat-form-field>
+          
+                </div>
+             
+              </div>
+          
+            <hr />
+            <div mat-dialog-actions class="d-flex justify-content-end">
+              <button mat-button (click)="reset()">Reset</button>
+              <button mat-stroked-button color="warn"  cdkFocusInitial (click)=" onNoClick()">
+                Close
+              </button>
+              <button class="btn btn-fill btn-danger" (click)="addCourse()" >
+               {{actionBtn}}
+              </button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
